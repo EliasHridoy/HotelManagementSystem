@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HotelManagementSystem.Models.GuestsModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="site-section bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                <h2 class="mb-5 text-white">Our Guest</h2>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (var guest in Model)
+            {
+
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="hotel-room text-center">
+                        <a href="#" class="d-block mb-4 thumbnail"><img src="~/img/iu.jpg" alt="Image" class="img-fluid"></a>
+                        <div class="p-4">
+                            <h3 class="heading mb-3 text-primary">@guest.Name</h3>
+                            <h4 class="heading mb-3 text-info">@guest.PhoneNo</h4>
+                            <div class="text-center">
+                                <a asp-action="Details" asp-route-id="@guest.Id" class="btn btn-primary">Details</a>
+                                <a asp-action="Delete" asp-route-id="@guest.Id" class="btn btn-primary">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@guest.Id" class="btn btn-primary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+            
